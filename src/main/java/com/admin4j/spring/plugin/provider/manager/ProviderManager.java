@@ -21,7 +21,8 @@ public class ProviderManager {
     }
 
     /**
-     * Spring 的 IOC 容器
+     * Spring 的 IOC 容器,默认为空。
+     * 默认使用了 SpringUtils（admin4j-common-spring包里） 来获取ApplicationContext。如果不想多引入`admin4j-common-spring`包的话，可将他排除
      */
     public static ApplicationContext APPLICATION_CONTEXT;
     private static final Map<Class<Provider<?>>, Collection<Provider<?>>> CACHED_PROVIDERS = new ConcurrentHashMap<>();
@@ -57,7 +58,9 @@ public class ProviderManager {
         return loadProvider(providerClass);
     }
 
-
+    /**
+     * 通过class获取所有的 beans
+     */
     private static <T extends Provider<?>> Collection<T> loadProvider(Class<T> providerClass) {
 
         return (Collection<T>) CACHED_PROVIDERS.computeIfAbsent((Class<Provider<?>>) providerClass, key -> {

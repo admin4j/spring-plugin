@@ -10,12 +10,28 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author andanyang
  * @since 2023/9/12 14:55
  */
 public class ProviderManagerTest {
+
+    @Test
+    public void testUsually() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
+
+        Map<String, PayWayHandler> payWayHandlerMap = context.getBeansOfType(PayWayHandler.class);
+
+        ChargeQuery chargeQuery = new ChargeQuery(new BigDecimal(100), "Ali");
+        for (PayWayHandler payWayHandler : payWayHandlerMap.values()) {
+            if (chargeQuery.getChannel().equals(payWayHandler.support())) {
+                payWayHandler.handler(chargeQuery);
+                break;
+            }
+        }
+    }
 
     @Test
     public void testPayWay() {
