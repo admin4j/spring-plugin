@@ -10,11 +10,12 @@
 
     <groupId>com.admin4j.spring</groupId>
     <artifactId>spring-plugin</artifactId>
-    <version>${revision}</version>
+    <version>0.8.0</version>
     <packaging>pom</packaging>
 
     <name>spring-plugin</name>
-    <description>基于Spring实现的设计模式插件，最小的插件系统</description>
+    <description>基于Spring实现，极轻巧的设计模式插件</description>
+    <url>https://github.com/admin4j/spring-plugin</url>
 
 
     <properties>
@@ -47,4 +48,43 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+
+    <!-- 开源签名证书 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <!-- 仓库信息 -->
+    <scm>
+        <connection>scm:git@github.com:admin4j/spring-plugin</connection>
+        <developerConnection>scm:git@github.com:admin4j/spring-plugin</developerConnection>
+        <url>https://github.com/admin4j/spring-plugin</url>
+    </scm>
+    <!-- 开发人员信息 -->
+    <developers>
+        <developer>
+            <name>admin4j</name>
+            <email>1218853253@qq.com</email>
+            <organization>https://github.com/admin4j</organization>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>${repository.releases.id}</id>
+            <name>nexus-releases</name>
+            <url>${repository.releases.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${repository.releases.id}</id>
+            <name>nexus-snapshot</name>
+            <url>${repository.snapshots.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
