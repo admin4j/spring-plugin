@@ -103,7 +103,7 @@ public class WxPayWayHandler implements PayWayHandler {
 <dependency>
     <groupId>com.admin4j.spring</groupId>
     <artifactId>spring-plugin</artifactId>
-    <version>0.8.0</version>
+    <version>0.8.1</version>
 </dependency> 
 ```
 
