@@ -10,8 +10,8 @@
 
     <groupId>com.admin4j.spring</groupId>
     <artifactId>spring-plugin</artifactId>
-    <version>0.8.0</version>
-    <packaging>pom</packaging>
+    <version>0.8.1</version>
+    <packaging>jar</packaging>
 
     <name>spring-plugin</name>
     <description>基于Spring实现，极轻巧的设计模式插件</description>
