@@ -34,7 +34,7 @@ public class ProviderManager {
      * @param support       支持的策略
      * @return 最终的支持策略的 Provider
      */
-    public static <T extends Provider<?>> T load(Class<T> providerClass, String support) {
+    public static <T extends Provider<S>, S> T load(Class<T> providerClass, S support) {
 
         Collection<T> providers = loadProvider(providerClass);
         for (Provider<?> provider : providers) {
