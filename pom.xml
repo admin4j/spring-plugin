@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.admin4j</groupId>
         <artifactId>admin4j-parent</artifactId>
-        <version>0.8.0</version>
+        <version>0.9.7</version>
     </parent>
 
     <groupId>com.admin4j.spring</groupId>
     <artifactId>spring-plugin</artifactId>
-    <version>0.8.2</version>
+    <!--    <version>0.8.2</version>-->
     <packaging>jar</packaging>
 
     <name>spring-plugin</name>
