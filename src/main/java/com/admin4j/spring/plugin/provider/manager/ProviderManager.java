@@ -2,7 +2,6 @@ package com.admin4j.spring.plugin.provider.manager;
 
 import com.admin4j.spring.plugin.exception.ProviderNotFoundException;
 import com.admin4j.spring.plugin.provider.Provider;
-import com.admin4j.spring.util.SpringUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 
@@ -86,7 +85,7 @@ public class ProviderManager {
     /**
      * Spring 的 IOC 容器。
      * <p>
-     * 默认使用 Spring Boot 自动配置注入，或通过 SpringUtils（admin4j-common-spring 包）获取。
+     * 使用 Spring Boot 自动配置注入
      * 如果都不可用，需要手动通过 {@link #setApplicationContext(ApplicationContext)} 设置。
      * </p>
      */
@@ -340,22 +339,17 @@ public class ProviderManager {
      * <p>
      * 内部方法，处理多种 ApplicationContext 来源：
      * 1. 自动配置注入（优先）
-     * 2. SpringUtils（admin4j-common-spring 包）
      * 3. 手动设置
      * </p>
      */
     private static void ensureApplicationContext() {
         if (APPLICATION_CONTEXT == null) {
-            try {
-                // 尝试使用 SpringUtils（如果 admin4j-common-spring 包可用）
-                APPLICATION_CONTEXT = SpringUtils.getApplicationContext();
-            } catch (Exception e) {
-                throw new IllegalStateException(
-                        "ApplicationContext 未配置。请使用以下方式之一配置：" +
-                                "\n1. 使用 Spring Boot 自动配置（推荐）" +
-                                "\n2. 引入 admin4j-common-spring 依赖" +
-                                "\n3. 手动调用 ProviderManager.setApplicationContext(context)");
-            }
+
+            throw new IllegalStateException(
+                    "ApplicationContext 未配置。请使用以下方式之一配置：" +
+                            "\n1. 使用 Spring Boot 自动配置（推荐）" +
+                            "\n2. 引入 admin4j-common-spring 依赖" +
+                            "\n3. 手动调用 ProviderManager.setApplicationContext(context)");
         }
     }
 }
