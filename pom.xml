@@ -5,13 +5,13 @@
     <parent>
         <groupId>com.admin4j</groupId>
         <artifactId>framework</artifactId>
-        <version>0.11.0</version>
+        <version>0.12.0</version>
         <relativePath/>
     </parent>
 
     <groupId>com.admin4j.spring</groupId>
     <artifactId>spring-plugin</artifactId>
-    <version>0.11.0</version>
+<!--    <version>0.11.0</version>-->
     <packaging>jar</packaging>
 
     <name>spring-plugin</name>
